@@ -1,17 +1,18 @@
-PARTICIPANTS=$1
+PARTICIPANTS=2
+WINNER=$((1 + RANDOM % PARTICIPANTS))
 
+say We only have two contestants this week so I\'m going to flip a doge coin to see who wins
+read -n 1
+say Heads, Lavisse,
+say Tails, Jeffrey Archer, bollocks, I meant Jeffrey Crawford
+read -n 1
 
-echo Sorry about the fuck up last week chaps | say && \
-echo pause && \
-read -n 1 && \
-echo good luck to our contestants today, number one, crypto mate, number two, Jeffrey Crawford, and, number three, Lavisse. In the style of jor D P, that\'s, L, A, V, I, S, S, E | say && \
-echo pause && \
-read -n 1 && \
-echo picking a number between 1 and ${PARTICIPANTS}... | say && \
-echo pause && \
-read -n 1 && \
-echo $((1 + RANDOM % PARTICIPANTS)) | say && \
-echo pause && \
-read -n 1 && \
-echo congratulations, see you at the next fire side chat | say
-
+if [ "$WINNER" = "1" ]; then
+    say HEADS
+    say Lavisse, you\'ve made it to the finest club in all of crypto.
+    say Better luck next time Jeff
+else
+    say TAILS
+    say JEFFREY CRAWFORD
+    say I\'m going to miss saying your name Jeffrey Crawford, but I\'ll see you in beak chord
+fi
