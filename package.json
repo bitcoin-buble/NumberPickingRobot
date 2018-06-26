@@ -18,6 +18,8 @@
   "homepage": "https://github.com/bitcoin-buble/NumberPickingRobot#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "lodash": "^4.17.10"
+    "hash.js": "^1.1.4",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2"
   }
 }

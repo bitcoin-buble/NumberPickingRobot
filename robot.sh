@@ -1,1 +1,12 @@
-node robot.js | say
+
+node robot.js intro | say
+read -n 1
+node robot.js verify | say
+read -n 1
+node robot.js contestants | say
+read -n 1
+node robot.js compIntro | say
+read -n 1
+node robot.js winnerIntro | say
+read -n 1
+node robot.js winner | say
