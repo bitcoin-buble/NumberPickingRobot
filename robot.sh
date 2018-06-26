@@ -1,18 +1,24 @@
 PARTICIPANTS=2
 WINNER=$((1 + RANDOM % PARTICIPANTS))
 
-say We only have two contestants this week so I\'m going to flip a doge coin to see who wins
+say Congratulations to Jeffrey Crawford, our winner last week. Proper Rockstar.
 read -n 1
-say Heads, Lavisse,
-say Tails, Jeffrey Archer, bollocks, I meant Jeffrey Crawford
+say We only have two contestants again this week so I\'m flipping another fucking doge coin
+read -n 1
+say can you lot pull your fingers out of your arses and donate a small amount on pay tree on so I\'ve got more people to pick from
+read -n 1
+say Lavisse, you get heads again,
+say Tails, Greg Campbell
 read -n 1
 
 if [ "$WINNER" = "1" ]; then
     say HEADS
     say Lavisse, you\'ve made it to the finest club in all of crypto.
-    say Better luck next time Jeff
+    read -n 1
+    say Better luck next time big G
 else
     say TAILS
-    say JEFFREY CRAWFORD
-    say I\'m going to miss saying your name Jeffrey Crawford, but I\'ll see you in beak chord
+    say Greg Campbell
+    read -n 1
+    say I thought I was going to win one day when I bought the peak in December. Lavisse, you might be luckier than me one day.
 fi
