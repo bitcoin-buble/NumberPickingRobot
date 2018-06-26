@@ -1,0 +1,19 @@
+{
+  "name": "numberpickingrobot",
+  "version": "1.0.0",
+  "description": "Picking a number between x and y ...",
+  "main": "block.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitcoin-buble@github.com/bitcoin-buble/NumberPickingRobot.git"
+  },
+  "author": "Boobs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bitcoin-buble/NumberPickingRobot/issues"
+  },
+  "homepage": "https://github.com/bitcoin-buble/NumberPickingRobot#readme"
+}
