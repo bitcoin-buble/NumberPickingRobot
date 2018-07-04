@@ -3,7 +3,12 @@ const axios = require("axios");
 const moment = require("moment");
 const hash = require("hash.js");
 const { flow, slice, join, reverse, get } = require("lodash/fp");
-const contestants = ["Swampy Bits", "Myphatarz", "Lavisse", "CryptoAnubis"];
+const contestants = [
+  "Swampy Bits",
+  "Myphatarz",
+  "CryptoAnubis",
+  "Pepper Plant Pants"
+];
 const sponsor = undefined;
 
 const verifyAuthenticityOfDraw = async () => {
@@ -60,17 +65,17 @@ const pickWinner = () => {
 };
 
 const readContestants = () => {
-  return `Our contestants this week are ${join(", ", contestants)}.`;
+  const contestantsStr = join(", ", contestants).replace(/,(?=[^,]*$)/, " and");
+  return `Our contestants this week are ${contestantsStr}. I love you all.`;
 };
 
 const steps = {
   intro: () =>
-    "To verify the date and time of the draw I'm going to query the bitcoin blockchain",
+    "Sorry, I went full autist last week and I didn't explain very well how this shit works. The T L D R is that it uses the same cryptographic algorithm as the bitcoin blockchain to generate a random number. I also failed to mention that we have a spot open to sponsor the robot. Get in touch if you're interested",
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
-  compIntro: () =>
-    "I have concatenated a little nonce to the hash from the latest bitcoin block and will run this through a sha 2 5 6 function to generate a random number. Contestants, are you ready?",
-  winnerIntro: () => "And the winner is...",
+  compIntro: () => "Contestants, are you ready?",
+  winnerIntro: () => "Sha, sha, sha, 2 5 6, And the winner is...",
   winner: pickWinner
 };
 
