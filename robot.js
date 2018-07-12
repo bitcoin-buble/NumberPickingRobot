@@ -3,13 +3,8 @@ const axios = require("axios");
 const moment = require("moment");
 const hash = require("hash.js");
 const { flow, slice, join, reverse, get } = require("lodash/fp");
-const contestants = [
-  "Swampy Bits",
-  "Myphatarz",
-  "CryptoAnubis",
-  "Pepper Plant Pants"
-];
-const sponsor = undefined;
+const contestants = ["Swampy Bits", "Myphatarz", "Pepphter Plant Pants"];
+const sponsor = "Stella Artois";
 
 const verifyAuthenticityOfDraw = async () => {
   const { data: getInfoResponse } = await axios.get(
@@ -61,7 +56,7 @@ const pickWinner = () => {
     nonce++;
   }
 
-  return winner;
+  return `GOAL! GOAL! GOAL! ${winner}`;
 };
 
 const readContestants = () => {
@@ -71,7 +66,7 @@ const readContestants = () => {
 
 const steps = {
   intro: () =>
-    "Sorry, I went full autist last week and I didn't explain very well how this shit works. The T L D R is that it uses the same cryptographic algorithm as the bitcoin blockchain to generate a random number. I also failed to mention that we have a spot open to sponsor the robot. Get in touch if you're interested",
+    "It's coming home, it's coming home, it's coming! The robot's coming home",
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
   compIntro: () => "Contestants, are you ready?",
