@@ -2,19 +2,19 @@ const fs = require("fs");
 const axios = require("axios");
 const moment = require("moment");
 const hash = require("hash.js");
-const { flow, slice, join, reverse, get } = require("lodash/fp");
-const contestants = ["Swampy Bits", "Myphatarz", "Pepphter Plant Pants"];
-const sponsor = "Stella Artois";
+const { flow, slice, join, reverse, get, times } = require("lodash/fp");
+const contestants = ["Swampy Bits", "Pepper Plant Pants", "Big Crypto Dave"];
+const sponsor = "Bitcoin Cash";
 
 const verifyAuthenticityOfDraw = async () => {
   const { data: getInfoResponse } = await axios.get(
-    "https://blockexplorer.com/api/status?getinfo"
+    "https://bitcoincash.blockexplorer.com/api/status?getinfo"
   );
 
   const info = getInfoResponse.info;
 
   const { data: getBlockIndex } = await axios.get(
-    `https://blockexplorer.com/api/block-index/${info.blocks}`
+    `https://bitcoincash.blockexplorer.com/api/block-index/${info.blocks}`
   );
 
   const lastBitOfHash = flow(
@@ -26,9 +26,9 @@ const verifyAuthenticityOfDraw = async () => {
 
   const output = `The date and time sponsored by ${sponsor} is ${moment().format(
     "dddd, MMMM Do YYYY, h:mm:ss a"
-  )} (UK time). The current block height on bitcoin is ${
+  )} (UK time). The current block height on bitcoin cash is ${
     info.blocks
-  } with a hash ending in ${lastBitOfHash}`;
+  } with a hash ending in ${lastBitOfHash}. Yep, we've gone off piste and we're using the bitcoin cash chain this week`;
 
   fs.writeFileSync("./hash.txt", getBlockIndex.blockHash);
 
@@ -56,21 +56,27 @@ const pickWinner = () => {
     nonce++;
   }
 
-  return `GOAL! GOAL! GOAL! ${winner}`;
+  return `You knows it... ${winner}`;
 };
 
 const readContestants = () => {
   const contestantsStr = join(", ", contestants).replace(/,(?=[^,]*$)/, " and");
-  return `Our contestants this week are ${contestantsStr}. I love you all.`;
+  return `I love all our patrons but you've got to show me the money to get in the draw! Our contestants this week are ${contestantsStr}.`;
 };
 
 const steps = {
   intro: () =>
-    "It's coming home, it's coming home, it's coming! The robot's coming home",
+    "Hold tight listeners and hold tight lads! I've been a bit down this week. I really thought it was coming home. How's your week been Ken?",
+  intro2: () =>
+    "shush, I'm not really that bothered. Anyway, on with the draw...",
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
   compIntro: () => "Contestants, are you ready?",
-  winnerIntro: () => "Sha, sha, sha, 2 5 6, And the winner is...",
+  winnerIntro: () =>
+    `${times(
+      () => "sha,",
+      11
+    )}. 2 5 6. Damn, I got a bit stuck there, I'm not using bitcoin cash again. The winner is...`,
   winner: pickWinner
 };
 
