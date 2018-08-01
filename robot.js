@@ -3,8 +3,8 @@ const axios = require("axios");
 const moment = require("moment");
 const hash = require("hash.js");
 const { flow, slice, join, reverse, get, times } = require("lodash/fp");
-const contestants = ["Swampy Bits", "Big Crypto Dave"];
-const sponsor = "Dee Cred";
+const contestants = ["Big Crypto Dave", "la 0 wai", "Irish beast man 25"];
+const sponsor = "P Money's day rate ";
 
 const verifyAuthenticityOfDraw = async () => {
   const { data: getInfoResponse } = await axios.get(
@@ -28,7 +28,7 @@ const verifyAuthenticityOfDraw = async () => {
     "dddd, MMMM Do YYYY, h:mm:ss"
   )} (UK time). The current block height on dee cred is ${
     info.blocks
-  } with a hash ending in ${lastBitOfHash}... I've gone off piste again, this time we're using the dee cred chain`;
+  } with a hash ending in ${lastBitOfHash}... I know you don't like it Mr Beak but I couldn't be fucked to change the code.`;
 
   fs.writeFileSync("./hash.txt", getBlockIndex.blockHash);
 
@@ -56,19 +56,19 @@ const pickWinner = () => {
     nonce++;
   }
 
-  return `Whoop, whoop, whoop... ${winner}`;
+  return `eee or, eee or, eee or, ... ${winner}`;
 };
 
 const readContestants = () => {
   const contestantsStr = join(", ", contestants).replace(/,(?=[^,]*$)/, " and");
-  return `I love all our patrons but you've got to show me the money to get in the draw! Our contestants this week are ${contestantsStr}.`;
+  return `I love all our patrons but you've got to show me the big bucks to get in the draw! Our contestants this week are ${contestantsStr}.`;
 };
 
 const steps = {
   intro: () =>
-    "undred meters turn left and your destination will be on the right.",
+    "Hey Ken, I met up with a few trading bots recently and they're all telling me about a new Quiff indicator. You sexy beast.",
   intro2: () =>
-    "Sorry chaps, just finishing up on my other job. All set for the draw today?",
+    "I thought I was going to be doing a coin flip this week but we've got some new entrants. Sorry big dave.",
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
   compIntro: () => "Contestants, are you ready?",
