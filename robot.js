@@ -71,9 +71,12 @@ const readContestants = () => {
 
 const steps = {
   intro: () =>
-    "Boobs is out listening to classical music or some shit but he's left me in the capable hands of Dr P Money. Don't fuck this up",
+    "I've got a lot of people that care about me. Never really knew it until now. I don't need that much help. I've played some video games before. I think I'm gonna try do a barrel roll, and if that goes good, I'm just gonna nose down and call it a night.",
   intro2: () =>
-    "I'm serious. You fuck this up and Boobs will break your legs. You've probably drunk the whole bottle of wine by now so this could go very badly wrong.",
+    "R I P The Robot Sky King! It looks like you're stuck with me from now on. Hold tight to our sponsor this week Ether roll How has everybody's week's been?",
+  fuckIt: () =>
+    "I'm going to do a coin flip today even though there's only one contestant. Sorry Big Dave, I couldn't make it too easy for ya",
+  fuckIt2: () => "ha ha ha. Only joking! You're in!",
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
   compIntro: () =>
