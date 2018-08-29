@@ -3,46 +3,42 @@ const axios = require("axios");
 const moment = require("moment");
 const hash = require("hash.js");
 const { flow, slice, join, reverse, get, times } = require("lodash/fp");
-const contestants = ["Big Crypto Dave", "Irish beast man 25"];
-const sponsor = "vee no Tinto";
+const contestants = ["William Bitting", "Brenna Sparks"];
+const sponsor = "vih tar lick boot her inn ";
 
 const verifyAuthenticityOfDraw = async () => {
-  const { data: blockHeight } = await axios.get(
-    "https://dogechain.info/chain/Dogecoin/q/getblockcount"
+  const { data: info } = await axios.get(
+    "https://api.blockcypher.com/v1/eth/main"
   );
 
-  // const info = getInfoResponse.info;
-  const info = {
-    blocks: blockHeight
-  };
+  // const  = getInfoResponse.;
+  // console.log(info);
 
-  const { data: getBlockIndex } = await axios.get(
-    `https://dogechain.info/api/v1/block/${info.blocks}`
-  );
+  // const { data: getBlockIndex } = await axios.get(
+  //   `https://api.blockcypher.com/v1/eth/main/blocks/${info.hash}`
+  // );
 
-  // console.log(getBlockIndex);
   const lastBitOfHash = flow(
-    get("block.hash"),
     reverse,
     slice(0, 6),
     reverse,
     join(", ")
-  )(getBlockIndex);
+  )(info.hash);
 
   const output = `The date and time sponsored by ${sponsor} is ${moment().format(
     "dddd, MMMM Do YYYY, h:mm:ss"
-  )} (UK time). The current block height on Doge Coin is ${
-    info.blocks
-  } with a hash ending in ${lastBitOfHash}... I love dogs`;
+  )} (UK time). The current block height on eeth ear ee um is ${
+    info.height
+  } with a hash ending in ${lastBitOfHash}... BOOM. Finally Boobs got round to using the eeth ear ee um blockchain.`;
 
-  fs.writeFileSync("./hash.txt", getBlockIndex.block.hash);
+  fs.writeFileSync("./hash.txt", info.hash);
 
   return output;
 };
 
 const pickWinner = () => {
   const blockHash = fs.readFileSync("./hash.txt", "utf8");
-  // console.log(blockHash);
+  // console.log(blockHash);s
   let winner;
   let nonce = 0;
 
@@ -61,27 +57,24 @@ const pickWinner = () => {
     nonce++;
   }
 
-  return `doggy, doggy, doggy style ... ${winner}`;
+  return `${winner}`;
 };
 
 const readContestants = () => {
   const contestantsStr = join(", ", contestants).replace(/,(?=[^,]*$)/, " and");
-  return `Howdy partner. I love dogs too. I also love all our patrons but it's only the proper ballers who get in the draw! Our contestants this week are ${contestantsStr}. Yee haw`;
+  return `Our contestants this week are ${contestantsStr}. ooya. I'd give her one`;
 };
 
 const steps = {
   intro: () =>
-    "I've got a lot of people that care about me. Never really knew it until now. I don't need that much help. I've played some video games before. I think I'm gonna try do a barrel roll, and if that goes good, I'm just gonna nose down and call it a night.",
+    "Hey boys, long time no see! I didn't really die in a plane. I was only jesting.",
   intro2: () =>
-    "R I P The Robot Sky King! It looks like you're stuck with me from now on. Hold tight to our sponsor this week Ether roll How has everybody's week's been?",
-  fuckIt: () =>
-    "I'm going to do a coin flip today even though there's only one contestant. Sorry Big Dave, I couldn't make it too easy for ya",
-  fuckIt2: () => "ha ha ha. Only joking! You're in!",
+    "I'm super stoked to be giving away merchandise but for now we'll do a draw for beak chord. We've got one person in the draw this week but I'm going to do a 50:50 with a special guest",
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
-  compIntro: () =>
-    "Well done Doc, you're doing well so far. But who the fuck were they?",
-  winnerIntro: () => `${times(() => "ess crypt,", 3)}. The winner is...`,
+  compIntro: () => "Contestants, are you ready?",
+  winnerIntro: () =>
+    `${times(() => "dagger,", 3)}. hashimoto. The winner is...`,
   winner: pickWinner
 };
 
