@@ -3,7 +3,19 @@ const axios = require("axios");
 const moment = require("moment");
 const hash = require("hash.js");
 const { flow, slice, join, reverse, get, times } = require("lodash/fp");
-const contestants = ["William Bitting", "Brenna Sparks"];
+const contestants = [
+  "CryptoAnubis",
+  "Irishbeastman25",
+  "Jeffrey Crawford",
+  "Kapzilla",
+  "Lavisse",
+  "Marm",
+  "Myphatarz",
+  "Pepper Plant Pants",
+  "Swampy Bits",
+  "William Bitting",
+  "Big Crypto Dave"
+];
 const sponsor = "vih tar lick boot her inn ";
 
 const verifyAuthenticityOfDraw = async () => {
@@ -29,7 +41,7 @@ const verifyAuthenticityOfDraw = async () => {
     "dddd, MMMM Do YYYY, h:mm:ss"
   )} (UK time). The current block height on eeth ear ee um is ${
     info.height
-  } with a hash ending in ${lastBitOfHash}... BOOM. Finally Boobs got round to using the eeth ear ee um blockchain.`;
+  } with a hash ending in ${lastBitOfHash}`;
 
   fs.writeFileSync("./hash.txt", info.hash);
 
@@ -62,14 +74,16 @@ const pickWinner = () => {
 
 const readContestants = () => {
   const contestantsStr = join(", ", contestants).replace(/,(?=[^,]*$)/, " and");
-  return `Our contestants this week are ${contestantsStr}. ooya. I'd give her one`;
+  return `Our contestants this week are ${contestantsStr}. What a line up!`;
 };
 
 const steps = {
   intro: () =>
-    "Hey boys, long time no see! I didn't really die in a plane. I was only jesting.",
+    "what's up, it's the robot. Back once again. By popular demand. For the renegade master. Ha ha.",
   intro2: () =>
-    "I'm super stoked to be giving away merchandise but for now we'll do a draw for beak chord. We've got one person in the draw this week but I'm going to do a 50:50 with a special guest",
+    "Today we've got a special two part random draw. The first is to give away a crypto weekly t shirt to one of our fifty dollar tier patrons. The second is to allocate a dope raider to each crypto weekly panel member. Confused? Ken, please explain.",
+  intro3: () => "Ok, so first off, the tea shirt draw. Good luck!",
+
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
   compIntro: () => "Contestants, are you ready?",
