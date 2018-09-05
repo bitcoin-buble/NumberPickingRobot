@@ -1,6 +1,12 @@
 const fs = require("fs");
 const { join, flow, shuffle, zip } = require("lodash/fp");
-const raiders = ["Illusion", "Marvin", "Up for it", "Wired some", "Zi-zi"];
+const raiders = [
+  "Frieda Lot",
+  "Marvin",
+  "Up for it",
+  "Wired some",
+  "Monday Lunch"
+];
 const panelMembers = [
   "Beak",
   "Ken",
@@ -33,7 +39,7 @@ const readAllocation = index => () => {
 
 const steps = {
   intro: () =>
-    "Ok. now. And with the tightest of holds to BIG CRYPTO DAVE, at crypto underscore dave underscore on twitter, we have to allocate our panel members a dope raider. We have five dope raiders",
+    "Ok. now. And with the tightest of holds to crypto block dan, at crypto block dan on twitter, we have to allocate our panel members a dope raider. We have five dope raiders",
   raiders: readRaiders,
   allocationIntro: () =>
     "I think you know who our panel members are so no introductions needed. On with the allocation.",
