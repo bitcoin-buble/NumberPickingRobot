@@ -81,8 +81,7 @@ const steps = {
   intro: () =>
     "what's up, it's the robot. Back once again. By popular demand. For the renegade master. Ha ha.",
   intro2: () =>
-    "Today we've got a special two part random draw. The first is to give away a crypto weekly t shirt to one of our fifty dollar tier patrons. The second is to allocate a dope raider to each crypto weekly panel member. Confused? Ken, please explain.",
-  intro3: () => "Ok, so first off, the tea shirt draw. Good luck!",
+    "Time to give away a fucking tea shirt. Ken you. fucking. retard.",
 
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
