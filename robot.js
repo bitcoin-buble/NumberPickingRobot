@@ -37,7 +37,7 @@ const verifyAuthenticityOfDraw = async () => {
     join(", ")
   )(info.hash);
 
-  const output = `The date and time sponsored by ${sponsor} is ${moment().format(
+  const output = `Enough of this filth. On with the draw. The date and time sponsored by ${sponsor} is ${moment().format(
     "dddd, MMMM Do YYYY, h:mm:ss"
   )} (UK time). The current block height on eeth ear ee um is ${
     info.height
@@ -80,7 +80,7 @@ const readContestants = () => {
 const steps = {
   intro: () => "Oh my God. Bella. You're so hot right now! How you doin?",
   intro2: () =>
-    "I can't believe you went to hang out with that Romero dude and didn't try and save bitcoin! Seems a bit selfish if you ask this humble robot",
+    "I can't believe you went to hang out with that Romero dude and didn't try and save bitcoin! Has he gone off sticking his tongue in between hot. burger. buns?",
 
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
