@@ -7,7 +7,7 @@ const contestants = [
   "CryptoAnubis",
   "Irishbeastman25",
   "Jeffrey Crawford",
-  "Kapzilla",
+  // "Kapzilla",
   "Lavisse",
   "Marm",
   "Myphatarz",
@@ -78,10 +78,9 @@ const readContestants = () => {
 };
 
 const steps = {
-  intro: () =>
-    "what's up, it's the robot. Back once again. By popular demand. For the renegade master. Ha ha.",
+  intro: () => "Oh my God. Bella. You're so hot right now! How you doin?",
   intro2: () =>
-    "Time to give away a fucking tea shirt. Ken you. fucking. retard.",
+    "I can't believe you went to hang out with that Romero dude and didn't try and save bitcoin! Seems a bit selfish if you ask this humble robot",
 
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,

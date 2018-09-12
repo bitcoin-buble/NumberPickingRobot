@@ -1,14 +1,14 @@
 
-node robot.js intro | say
+node robot.js intro | say -v allison
 read -n 1
-node robot.js intro2 | say
+node robot.js intro2 | say -v allison
 read -n 1
-node robot.js verify | say
+node robot.js verify | say -v allison
 read -n 1
-node robot.js contestants | say
+node robot.js contestants | say -v allison
 read -n 1
-node robot.js compIntro | say
+node robot.js compIntro | say -v allison
 read -n 1
-node robot.js winnerIntro | say
+node robot.js winnerIntro | say -v allison
 read -n 1
-node robot.js winner | say
+node robot.js winner | say -v allison
