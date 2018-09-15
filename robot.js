@@ -16,7 +16,7 @@ const contestants = [
   "William Bitting",
   "Big Crypto Dave"
 ];
-const sponsor = "vih tar lick boot her inn ";
+const sponsor = "our hosts, wee work";
 
 const verifyAuthenticityOfDraw = async () => {
   const { data: info } = await axios.get(
@@ -37,7 +37,7 @@ const verifyAuthenticityOfDraw = async () => {
     join(", ")
   )(info.hash);
 
-  const output = `Enough of this filth. On with the draw. The date and time sponsored by ${sponsor} is ${moment().format(
+  const output = `On with the draw. The date and time sponsored by ${sponsor} is ${moment().format(
     "dddd, MMMM Do YYYY, h:mm:ss"
   )} (UK time). The current block height on eeth ear ee um is ${
     info.height
@@ -78,9 +78,10 @@ const readContestants = () => {
 };
 
 const steps = {
-  intro: () => "Oh my God. Bella. You're so hot right now! How you doin?",
+  intro: () =>
+    "Hold tight doctor P money for finally making it back from The Dam. Fuck borders! Decentralize all the things!",
   intro2: () =>
-    "I can't believe you went to hang out with that Romero dude and didn't try and save bitcoin! Has he gone off sticking his tongue in between hot. burger. buns?",
+    "I'm gutted Bitcoin Bella couldn't make the recording. So come on then? Did either of you let that Romero dude put his stinky tongue in your pristine arseholes? Actually don't answer that. On with the T shirt contest",
 
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
