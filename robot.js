@@ -7,16 +7,16 @@ const contestants = [
   "CryptoAnubis",
   "Irishbeastman25",
   "Jeffrey Crawford",
-  // "Kapzilla",
+  "Kapzilla",
   "Lavisse",
-  "Marm",
+  // "Marm",
   "Myphatarz",
   "Pepper Plant Pants",
   "Swampy Bits",
   "William Bitting",
   "Big Crypto Dave"
 ];
-const sponsor = "our hosts, wee work";
+const sponsor = "Based Gluten Free Chicken";
 
 const verifyAuthenticityOfDraw = async () => {
   const { data: info } = await axios.get(
@@ -37,7 +37,7 @@ const verifyAuthenticityOfDraw = async () => {
     join(", ")
   )(info.hash);
 
-  const output = `On with the draw. The date and time sponsored by ${sponsor} is ${moment().format(
+  const output = `The date and time sponsored by ${sponsor} is ${moment().format(
     "dddd, MMMM Do YYYY, h:mm:ss"
   )} (UK time). The current block height on eeth ear ee um is ${
     info.height
@@ -69,7 +69,7 @@ const pickWinner = () => {
     nonce++;
   }
 
-  return `${winner}`;
+  return `The one and only. ${winner}`;
 };
 
 const readContestants = () => {
@@ -79,15 +79,16 @@ const readContestants = () => {
 
 const steps = {
   intro: () =>
-    "Hold tight doctor P money for finally making it back from The Dam. Fuck borders! Decentralize all the things!",
+    "Well done lads for managing to count to five and bringing enough mics for all of you this week. Slowest of claps.",
+  clap: () => "clap",
   intro2: () =>
-    "I'm gutted Bitcoin Bella couldn't make the recording. So come on then? Did either of you let that Romero dude put his stinky tongue in your pristine arseholes? Actually don't answer that. On with the T shirt contest",
+    "Anyway, moving on with the most based of draws in the world of crypto. BASED!",
 
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
   compIntro: () => "Contestants, are you ready?",
   winnerIntro: () =>
-    `${times(() => "dagger,", 3)}. hashimoto. The winner is...`,
+    `${times(() => "based dagger,", 3)}. hashimoto. The based winner is...`,
   winner: pickWinner
 };
 
