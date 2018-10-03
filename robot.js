@@ -7,16 +7,16 @@ const contestants = [
   "CryptoAnubis",
   "Irishbeastman25",
   "Jeffrey Crawford",
-  "Kapzilla",
-  "Lavisse",
-  // "Marm",
+  "Kap kap kap Kap zilla",
+  "Marm",
   "Myphatarz",
-  "Pepper Plant Pants",
+  // "Pepper Plant Pants",
   "Swampy Bits",
   "William Bitting",
   "Big Crypto Dave"
 ];
-const sponsor = "Based Gluten Free Chicken";
+
+const sponsor = "P Muh Muh Muh Money's Health Insurance";
 
 const verifyAuthenticityOfDraw = async () => {
   const { data: info } = await axios.get(
@@ -39,7 +39,7 @@ const verifyAuthenticityOfDraw = async () => {
 
   const output = `The date and time sponsored by ${sponsor} is ${moment().format(
     "dddd, MMMM Do YYYY, h:mm:ss"
-  )} (UK time). The current block height on eeth ear ee um is ${
+  )} (UK time). The current block height on eeth ear ree yum is ${
     info.height
   } with a hash ending in ${lastBitOfHash}`;
 
@@ -69,7 +69,7 @@ const pickWinner = () => {
     nonce++;
   }
 
-  return `The one and only. ${winner}`;
+  return `The greatest to ever do it. ${winner}`;
 };
 
 const readContestants = () => {
@@ -79,16 +79,18 @@ const readContestants = () => {
 
 const steps = {
   intro: () =>
-    "Well done lads for managing to count to five and bringing enough mics for all of you this week. Slowest of claps.",
-  clap: () => "clap",
+    "Shh. Shh. Shh. Shh. Shit the bed, that was one hell of a. rye. rye. ride with Doctor P Muh Muh Muh Money last week! Soh. Soh. Soh. Sorry. boo. boo. boobs.",
+  wew: () =>
+    "Wew. I've not had my buh buh buh balls tickled like that before. It's tur. tur. turned me in to a stuh. stuh. stuh. stuh. stuttering poh. poh. pot head",
   intro2: () =>
-    "Anyway, moving on with the most based of draws in the world of crypto. BASED!",
+    "I've been having some therapy so should be rye rye rye right as rain in no time. On with the draw",
 
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
-  compIntro: () => "Contestants, are you ready?",
+  compIntro: () =>
+    "Cuh. cuh. cuh. cunt. cunt. cunt. contestants, are you ready?                  Oh for fuh. fuh. fuh. fucks sake.",
   winnerIntro: () =>
-    `${times(() => "based dagger,", 3)}. hashimoto. The based winner is...`,
+    `${times(() => "dah. dah. dah. dagger,", 3)}. hashimoto. The winner is...`,
   winner: pickWinner
 };
 

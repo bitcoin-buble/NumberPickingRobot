@@ -1,11 +1,7 @@
 
 node robot.js intro | say
 read -n 1
-node robot.js clap | say
-read -n 1
-node robot.js clap | say
-read -n 1
-node robot.js clap | say
+node robot.js wew | say
 read -n 1
 node robot.js intro2 | say
 read -n 1
