@@ -7,28 +7,22 @@ const contestants = [
   "CryptoAnubis",
   "Irishbeastman25",
   "Jeffrey Crawford",
-  "Kap kap kap Kap zilla",
-  "Marm",
+  // "Kap kap kap Kap zilla",
+  "Lavisse",
+  "Maarm",
   "Myphatarz",
-  // "Pepper Plant Pants",
+  "Pepper Plant Pants",
   "Swampy Bits",
   "William Bitting",
   "Big Crypto Dave"
 ];
 
-const sponsor = "P Muh Muh Muh Money's Health Insurance";
+const sponsor = "Beers for Brett";
 
 const verifyAuthenticityOfDraw = async () => {
   const { data: info } = await axios.get(
     "https://api.blockcypher.com/v1/eth/main"
   );
-
-  // const  = getInfoResponse.;
-  // console.log(info);
-
-  // const { data: getBlockIndex } = await axios.get(
-  //   `https://api.blockcypher.com/v1/eth/main/blocks/${info.hash}`
-  // );
 
   const lastBitOfHash = flow(
     reverse,
@@ -41,7 +35,7 @@ const verifyAuthenticityOfDraw = async () => {
     "dddd, MMMM Do YYYY, h:mm:ss"
   )} (UK time). The current block height on eeth ear ree yum is ${
     info.height
-  } with a hash ending in ${lastBitOfHash}`;
+  } with a hash ending in ${lastBitOfHash}.`;
 
   fs.writeFileSync("./hash.txt", info.hash);
 
@@ -50,13 +44,12 @@ const verifyAuthenticityOfDraw = async () => {
 
 const pickWinner = () => {
   const blockHash = fs.readFileSync("./hash.txt", "utf8");
-  // console.log(blockHash);s
+
   let winner;
   let nonce = 0;
 
   while (!winner) {
     const strToHash = `${blockHash}-${nonce}`;
-    // console.log(strToHash);
 
     const hashOfHash = hash
       .sha256()
@@ -64,33 +57,30 @@ const pickWinner = () => {
       .digest("hex");
 
     const char = slice(0, 1, hashOfHash);
-    // console.log(hashOfHash, char);
+
     winner = get(char, contestants);
     nonce++;
   }
 
-  return `The greatest to ever do it. ${winner}`;
+  return `HOLD TIGHT. This week's winner is... ${winner}`;
 };
 
 const readContestants = () => {
   const contestantsStr = join(", ", contestants).replace(/,(?=[^,]*$)/, " and");
-  return `Our contestants this week are ${contestantsStr}. What a line up!`;
+  return `Our contestants this week are ${contestantsStr}.`;
 };
 
 const steps = {
   intro: () =>
-    "Shh. Shh. Shh. Shh. Shit the bed, that was one hell of a. rye. rye. ride with Doctor P Muh Muh Muh Money last week! Soh. Soh. Soh. Sorry. boo. boo. boobs.",
-  wew: () =>
-    "Wew. I've not had my buh buh buh balls tickled like that before. It's tur. tur. turned me in to a stuh. stuh. stuh. stuh. stuttering poh. poh. pot head",
-  intro2: () =>
-    "I've been having some therapy so should be rye rye rye right as rain in no time. On with the draw",
-
+    "Well lads, you will be pleased to know that I'm no longer a stuttering pot head. I'm cure cure cure cure cured.",
+  laugh: () => "ha hah hah. Mwah hah ha hah",
+  intro2: () => "I had you going there didn't I",
+  intro3: () =>
+    "On a serious note, you lot have had some proper high IQ chat this week. It's a shame P Money has to cut half of it!",
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
-  compIntro: () =>
-    "Cuh. cuh. cuh. cunt. cunt. cunt. contestants, are you ready?                  Oh for fuh. fuh. fuh. fucks sake.",
-  winnerIntro: () =>
-    `${times(() => "dah. dah. dah. dagger,", 3)}. hashimoto. The winner is...`,
+  compIntro: () => "Cun testants, are you ready?",
+  winnerIntro: () => `${times(() => "dah. dah. dah. dagger,", 3)}. hashimoto.`,
   winner: pickWinner
 };
 
