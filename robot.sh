@@ -1,12 +1,10 @@
 #!/bin/bash
 
 node robot.js intro | tee >(say) | say -o "./output/intro.aiff"
-read -n 1
-node robot.js laugh | tee >(say -r 120) | say -r 120 -o "./output/laugh.aiff"
-read -n 1
-node robot.js intro2 | tee >(say) | say -o "./output/intro2.aiff"
-read -n 1
-node robot.js intro3 | tee >(say) | say -o "./output/intro3.aiff"
+# read -n 1
+# node robot.js intro2 | tee >(say) | say -o "./output/intro2.aiff"
+# read -n 1
+# node robot.js intro3 | tee >(say) | say -o "./output/intro3.aiff"
 read -n 1
 node robot.js verify | tee >(say) | say -o "./output/verify.aiff"
 read -n 1

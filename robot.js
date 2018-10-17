@@ -7,8 +7,8 @@ const contestants = [
   "CryptoAnubis",
   "Irishbeastman25",
   "Jeffrey Crawford",
-  // "Kap kap kap Kap zilla",
-  "Lavisse",
+  "Kap kap kap Kap zilla",
+  // "Lavisse",
   "Maarm",
   "Myphatarz",
   "Pepper Plant Pants",
@@ -39,7 +39,8 @@ const verifyAuthenticityOfDraw = async () => {
 
   fs.writeFileSync("./hash.txt", info.hash);
 
-  return output;
+  // return output;
+  return "This week's draw is sponsored by our HORSE div ease! The time is the time, the date the date. whatever.";
 };
 
 const pickWinner = () => {
@@ -62,25 +63,26 @@ const pickWinner = () => {
     nonce++;
   }
 
-  return `HOLD TIGHT. This week's winner is... ${winner}`;
+  return `Ken, do the honours and give ${winner} a t shirt will you.`;
 };
 
 const readContestants = () => {
   const contestantsStr = join(", ", contestants).replace(/,(?=[^,]*$)/, " and");
-  return `Our contestants this week are ${contestantsStr}.`;
+  // return `Our contestants this week are ${contestantsStr}.`;
+  return "Fuck's sake. Our contestants this week are the same as last week. Come on you scum bags. Man's got to get paid";
 };
 
 const steps = {
   intro: () =>
-    "Well lads, you will be pleased to know that I'm no longer a stuttering pot head. I'm cure cure cure cure cured.",
-  laugh: () => "ha hah hah. Mwah hah ha hah",
-  intro2: () => "I had you going there didn't I",
-  intro3: () =>
-    "On a serious note, you lot have had some proper high IQ chat this week. It's a shame P Money has to cut half of it!",
+    "It's late. Ken's coin went on too long. The wine's finished. Teather is fucked and. Roo beanie is a nob head so I can't be fucked with all the spiel today lads. Also, Boobs has got to go pack so he can get his surf on tomorrow.",
+  intro2: () => "",
+  intro3: () => "",
   verify: verifyAuthenticityOfDraw,
   contestants: readContestants,
   compIntro: () => "Cun testants, are you ready?",
-  winnerIntro: () => `${times(() => "dah. dah. dah. dagger,", 3)}. hashimoto.`,
+  // winnerIntro: () => `${times(() => "dah. dah. dah. dagger,", 3)}. hashimoto.`,
+  winnerIntro: () =>
+    `You know the drill. Dah dah dah. dagger. And all that jazz.`,
   winner: pickWinner
 };
 
