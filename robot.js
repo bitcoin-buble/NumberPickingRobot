@@ -16,6 +16,7 @@ const pickCoins = async () => {
   const coins = flow(
     reject({ rank: 0 }),
     orderBy(["rank"], ["asc"]),
+    reject({ name: "Factom" }),
     slice(0, 100),
     sampleSize(4),
     map("name"),
@@ -26,7 +27,7 @@ const pickCoins = async () => {
 
 const steps = {
   intro: () =>
-    "Well, that was a bit short notice but here's four random coins:",
+    "Oh, fellas. I thought you'd be more into factom than that!. Here's four more coins for The. Big. Squizzers. twitter poll:",
 
   pickCoins: pickCoins
 };
