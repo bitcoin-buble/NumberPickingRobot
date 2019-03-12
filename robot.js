@@ -7,8 +7,14 @@ const {
   sampleSize,
   reject,
   map,
-  join
+  join,
+  size
 } = require("lodash/fp");
+
+const pause = ms => `[[slnc ${ms}]]`;
+
+const sayNumberOfChoices = coins =>
+  console.log(`picking four coins from ${size(coins)} ${pause(1500)}`) || coins;
 
 const pickCoins = async () => {
   const { data } = await axios.get("https://api.coinpaprika.com/v1/coins");
@@ -16,8 +22,11 @@ const pickCoins = async () => {
   const coins = flow(
     reject({ rank: 0 }),
     orderBy(["rank"], ["asc"]),
-    reject({ name: "Factom" }),
     slice(0, 100),
+    reject({ is_active: false }),
+    reject({ symbol: "FCT" }),
+    reject({ symbol: "STRAT" }),
+    sayNumberOfChoices,
     sampleSize(4),
     map("name"),
     join(", ")
@@ -25,16 +34,17 @@ const pickCoins = async () => {
   return coins;
 };
 
-const steps = {
-  intro: () =>
-    "Oh, fellas. I thought you'd be more into factom than that!. Here's four more coins for The. Big. Squizzers. twitter poll:",
-
-  pickCoins: pickCoins
-};
-
 const run = async step => {
-  const say = await steps[step]();
-  console.log(say);
+  const intro = `Wew. ${pause(200)}
+  The stratis fam are super into their twitter polls hey! ${pause(700)}
+  I wonder which crypto ${pause(200)} army are going to come out this week.
+  Here's my picks for next week's crypto weekly's weekly crypto: ${pause(2500)}
+  Hold on ${pause(200)} I'm thinking ${pause(2500)}
+  `;
+  console.log(intro);
+
+  const coins = await pickCoins();
+  console.log(coins);
 };
 
 const step = process.argv[2];
