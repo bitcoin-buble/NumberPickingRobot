@@ -14,7 +14,16 @@ const {
 const pause = ms => `[[slnc ${ms}]]`;
 
 const sayNumberOfChoices = coins =>
-  console.log(`picking four coins from ${size(coins)} ${pause(1500)}`) || coins;
+  console.log(`picking four coins from ${size(coins)} ${pause(2500)}`) || coins;
+
+const sayJoke = arr =>
+  console.log(
+    `picking four coins from one. ${pause(500)} Augur, ${pause(
+      200
+    )} Augur, ${pause(200)} Augur, ${pause(200)} and Augur, ${pause(
+      2000
+    )} Ha ha ha ha. Let's do it prop err lee now ${pause(200)}`
+  ) || arr;
 
 const pickCoins = async () => {
   const { data } = await axios.get("https://api.coinpaprika.com/v1/coins");
@@ -26,6 +35,8 @@ const pickCoins = async () => {
     reject({ is_active: false }),
     reject({ symbol: "FCT" }),
     reject({ symbol: "STRAT" }),
+    reject({ symbol: "LTC" }),
+    sayJoke,
     sayNumberOfChoices,
     sampleSize(4),
     map("name"),
@@ -34,12 +45,15 @@ const pickCoins = async () => {
   return coins;
 };
 
-const run = async step => {
-  const intro = `Wew. ${pause(200)}
-  The stratis fam are super into their twitter polls hey! ${pause(700)}
-  I wonder which crypto ${pause(200)} army are going to come out this week.
-  Here's my picks for next week's crypto weekly's weekly crypto: ${pause(2500)}
-  Hold on ${pause(200)} I'm thinking ${pause(2500)}
+const run = async () => {
+  const intro = `
+  Lite coin hey, ${pause(
+    200
+  )} what a shit show. I've never been a fan of Charlie Lee. ${pause(
+    500
+  )}. Clearly the community can't be trusted to pick a coin for us to deep dive into!
+  Anyway.
+  Here's my picks for next week's crypto weekly's weekly crypto: ${pause(1000)}
   `;
   console.log(intro);
 
@@ -47,5 +61,4 @@ const run = async step => {
   console.log(coins);
 };
 
-const step = process.argv[2];
-run(step);
+run();
