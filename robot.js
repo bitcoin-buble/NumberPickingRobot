@@ -16,27 +16,18 @@ const pause = ms => `[[slnc ${ms}]]`;
 const sayNumberOfChoices = coins =>
   console.log(`picking four coins from ${size(coins)} ${pause(2500)}`) || coins;
 
-const sayJoke = arr =>
-  console.log(
-    `picking four coins from one. ${pause(500)} Augur, ${pause(
-      200
-    )} Augur, ${pause(200)} Augur, ${pause(200)} and Augur, ${pause(
-      2000
-    )} Ha ha ha ha. Let's do it prop err lee now ${pause(200)}`
-  ) || arr;
-
 const pickCoins = async () => {
   const { data } = await axios.get("https://api.coinpaprika.com/v1/coins");
 
   const coins = flow(
     reject({ rank: 0 }),
     orderBy(["rank"], ["asc"]),
-    slice(0, 100),
     reject({ is_active: false }),
     reject({ symbol: "FCT" }),
     reject({ symbol: "STRAT" }),
     reject({ symbol: "LTC" }),
-    sayJoke,
+    reject({ symbol: "XTZ" }),
+    slice(0, 100),
     sayNumberOfChoices,
     sampleSize(4),
     map("name"),
@@ -47,11 +38,13 @@ const pickCoins = async () => {
 
 const run = async () => {
   const intro = `
-  Lite coin hey, ${pause(
-    200
-  )} what a shit show. I've never been a fan of Charlie Lee. ${pause(
+  So. Boobs didn't bother to do any research into Tezos. Looks like you winged it ok anyway. ${pause(
     500
-  )}. Clearly the community can't be trusted to pick a coin for us to deep dive into!
+  )}Shit, probably shouldn't have said that. ${pause(1000)} sorry dude.${pause(
+    1000
+  )} The community missed a huge opportunity to pick Augur this week but fingers crossed for next week. ${pause(
+    1000
+  )}
   Anyway.
   Here's my picks for next week's crypto weekly's weekly crypto: ${pause(1000)}
   `;
