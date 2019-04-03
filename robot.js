@@ -27,6 +27,7 @@ const pickCoins = async () => {
     reject({ symbol: "STRAT" }),
     reject({ symbol: "LTC" }),
     reject({ symbol: "XTZ" }),
+    reject({ symbol: "ZIL" }),
     slice(0, 100),
     sayNumberOfChoices,
     sampleSize(4),
@@ -38,12 +39,12 @@ const pickCoins = async () => {
 
 const run = async () => {
   const intro = `
-  So. Boobs didn't bother to do any research into Tezos. Looks like you winged it ok anyway. ${pause(
+    Yo, Sizzle, back again, this time bringing us the inside scoop on ya boi, ${pause(
+      200
+    )} Mr Yang. ${pause(500)} a pleasure once again! ${pause(
     500
-  )}Shit, probably shouldn't have said that. ${pause(1000)} sorry dude.${pause(
-    1000
-  )} The community missed a huge opportunity to pick Augur this week but fingers crossed for next week. ${pause(
-    1000
+  )}. I fancy a holiday. ${pause(200)} anyone fancy a trip to scotland? ${pause(
+    5000
   )}
   Anyway.
   Here's my picks for next week's crypto weekly's weekly crypto: ${pause(1000)}
