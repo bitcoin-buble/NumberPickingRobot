@@ -28,6 +28,8 @@ const pickCoins = async () => {
     reject({ symbol: "LTC" }),
     reject({ symbol: "XTZ" }),
     reject({ symbol: "ZIL" }),
+    reject({ symbol: "DAI" }),
+    reject({ symbol: "MKR" }),
     slice(0, 100),
     sayNumberOfChoices,
     sampleSize(4),
@@ -39,12 +41,12 @@ const pickCoins = async () => {
 
 const run = async () => {
   const intro = `
-    Yo, Sizzle, back again, this time bringing us the inside scoop on ya boi, ${pause(
-      200
-    )} Mr Yang. ${pause(500)} a pleasure once again! ${pause(
-    500
-  )}. I fancy a holiday. ${pause(200)} anyone fancy a trip to scotland? ${pause(
-    5000
+    Hold on chaps, what the bloody hell do you think you're doing? ${pause(
+      250
+    )} You just covered two coins in one there! For fucks sake. ${pause(
+    400
+  )} P Money, exec producer in chief, tis good to have you back friend. ${pause(
+    400
   )}
   Anyway.
   Here's my picks for next week's crypto weekly's weekly crypto: ${pause(1000)}
