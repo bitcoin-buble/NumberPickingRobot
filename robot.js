@@ -30,6 +30,8 @@ const pickCoins = async () => {
     reject({ symbol: "ZIL" }),
     reject({ symbol: "DAI" }),
     reject({ symbol: "MKR" }),
+    reject({ symbol: "KCS" }),
+    reject({ symbol: "BCHSV" }),
     slice(0, 100),
     sayNumberOfChoices,
     sampleSize(4),
@@ -41,15 +43,19 @@ const pickCoins = async () => {
 
 const run = async () => {
   const intro = `
-    Hold on chaps, what the bloody hell do you think you're doing? ${pause(
-      250
-    )} You just covered two coins in one there! For fucks sake. ${pause(
-    400
-  )} P Money, exec producer in chief, tis good to have you back friend. ${pause(
-    400
-  )}
+    Just to be clear, Craig Wright is not Satoshi. ${pause(
+      500
+    )} He is a complete fucking moron though. ${pause(
+    1000
+  )} P Money, made it back for one week and now given up on us again. ${pause(
+    500
+  )} Tut. Tut. ${pause(500)}
   Anyway.
-  Here's my picks for next week's crypto weekly's weekly crypto: ${pause(1000)}
+  Here's my picks for next week's crypto weekly's weekly crypto:
+  ${pause(1000)} Just one more thing to do. ${pause(
+    500
+  )} Dee listing Bitcoin Cash Shit Version
+  ${pause(1000)}
   `;
   console.log(intro);
 
