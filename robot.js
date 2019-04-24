@@ -32,6 +32,7 @@ const pickCoins = async () => {
     reject({ symbol: "MKR" }),
     reject({ symbol: "KCS" }),
     reject({ symbol: "BCHSV" }),
+    reject({ symbol: "ICX" }),
     slice(0, 100),
     sayNumberOfChoices,
     sampleSize(4),
@@ -43,18 +44,19 @@ const pickCoins = async () => {
 
 const run = async () => {
   const intro = `
-    Just to be clear, Craig Wright is not Satoshi. ${pause(
-      500
-    )} He is a complete fucking moron though. ${pause(
+  A robot has no beginning or end ${pause(
+    800
+  )} it is always in the middle ${pause(800)} between things ${pause(1500)}
+    I'm not sure where that intro came from last week.${pause(
+      400
+    )} It was nothing to do with me. ${pause(
     1000
-  )} P Money, made it back for one week and now given up on us again. ${pause(
-    500
-  )} Tut. Tut. ${pause(500)}
+  )} Even so, I agree with the anonymous person who put it together in that Craig is a complete fraud ${pause(
+    1000
+  )} allegedly.
+  ${pause(1000)}
   Anyway.
   Here's my picks for next week's crypto weekly's weekly crypto:
-  ${pause(1000)} Just one more thing to do. ${pause(
-    500
-  )} Dee listing Bitcoin Cash Shit Version
   ${pause(1000)}
   `;
   console.log(intro);
