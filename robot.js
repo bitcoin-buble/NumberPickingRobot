@@ -13,16 +13,19 @@ const {
 
 const pause = ms => `[[slnc ${ms}]]`;
 
-const sayNumberOfChoices = coins =>
-  console.log(`picking four coins from ${size(coins)} ${pause(2500)}`) || coins;
+const sayNumberOfChoices = n =>
+  console.log(`picking four coins from ${size(n)} ${pause(2500)}`) || n;
 
 const pickCoins = async () => {
   const { data } = await axios.get("https://api.coinpaprika.com/v1/coins");
 
   const coins = flow(
     reject({ rank: 0 }),
-    orderBy(["rank"], ["asc"]),
     reject({ is_active: false }),
+    orderBy(["rank"], ["asc"]),
+    slice(0, 100),
+
+    // x => console.log("y", size(x)) || x,
     reject({ symbol: "FCT" }),
     reject({ symbol: "STRAT" }),
     reject({ symbol: "LTC" }),
@@ -33,7 +36,10 @@ const pickCoins = async () => {
     reject({ symbol: "KCS" }),
     reject({ symbol: "BCHSV" }),
     reject({ symbol: "ICX" }),
-    slice(0, 100),
+    reject({ symbol: "ORBS" }),
+    // x => console.log(x, size(x)) || x,
+    // x => console.log("x", size(x)) || x,
+
     sayNumberOfChoices,
     sampleSize(4),
     map("name"),
@@ -44,16 +50,12 @@ const pickCoins = async () => {
 
 const run = async () => {
   const intro = `
-  A robot has no beginning or end ${pause(
-    800
-  )} it is always in the middle ${pause(800)} between things ${pause(1500)}
-    I'm not sure where that intro came from last week.${pause(
-      400
-    )} It was nothing to do with me. ${pause(
+  What a dude Tal Kol is for spending an hour chatting tech with you two nerds. ${pause(
+    400
+  )} Legend ${pause(
     1000
-  )} Even so, I agree with the anonymous person who put it together in that Craig is a complete fraud ${pause(
-    1000
-  )} allegedly.
+  )} Still, probably would have been more fun to watch Beak talk positively about ee oss
+
   ${pause(1000)}
   Anyway.
   Here's my picks for next week's crypto weekly's weekly crypto:
