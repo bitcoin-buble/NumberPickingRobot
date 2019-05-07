@@ -25,7 +25,6 @@ const pickCoins = async () => {
     orderBy(["rank"], ["asc"]),
     slice(0, 100),
 
-    // x => console.log("y", size(x)) || x,
     reject({ symbol: "FCT" }),
     reject({ symbol: "STRAT" }),
     reject({ symbol: "LTC" }),
@@ -37,8 +36,7 @@ const pickCoins = async () => {
     reject({ symbol: "BCHSV" }),
     reject({ symbol: "ICX" }),
     reject({ symbol: "ORBS" }),
-    // x => console.log(x, size(x)) || x,
-    // x => console.log("x", size(x)) || x,
+    reject({ symbol: "DOGE" }),
 
     sayNumberOfChoices,
     sampleSize(4),
@@ -50,12 +48,15 @@ const pickCoins = async () => {
 
 const run = async () => {
   const intro = `
-  What a dude Tal Kol is for spending an hour chatting tech with you two nerds. ${pause(
+  I love dogs. ${pause(400)} No ${pause(
     400
-  )} Legend ${pause(
+  )} I don't think you understand how much I love dogs. ${pause(
+    600
+  )} But ${pause(200)} Dogecoin is a complete waste of everyone's time. ${pause(
     1000
-  )} Still, probably would have been more fun to watch Beak talk positively about ee oss
-
+  )} Hold tight Just the Charts for keeping shit proper tight. ${pause(
+    300
+  )} The real ones know why.
   ${pause(1000)}
   Anyway.
   Here's my picks for next week's crypto weekly's weekly crypto:
