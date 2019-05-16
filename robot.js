@@ -37,6 +37,7 @@ const pickCoins = async () => {
     reject({ symbol: "ICX" }),
     reject({ symbol: "ORBS" }),
     reject({ symbol: "DOGE" }),
+    reject({ symbol: "BTC" }),
 
     sayNumberOfChoices,
     sampleSize(4),
@@ -48,16 +49,14 @@ const pickCoins = async () => {
 
 const run = async () => {
   const intro = `
-  I love dogs. ${pause(400)} No ${pause(
-    400
-  )} I don't think you understand how much I love dogs. ${pause(
+  Well, at least some of you turned up and I didn't have to do the whole show on my own. ${pause(
     600
-  )} But ${pause(200)} Dogecoin is a complete waste of everyone's time. ${pause(
+  )} Hold Tight P money for letting you have his flat to record in, he definitely deserves a holiday after turning up three weeks in a row.
+  ${pause(
     1000
-  )} Hold tight Just the Charts for keeping shit proper tight. ${pause(
-    300
-  )} The real ones know why.
-  ${pause(1000)}
+  )} I've been here week in, week out. Maybe I should have a holiday from this random number generation. ${pause(
+    1000
+  )}
   Anyway.
   Here's my picks for next week's crypto weekly's weekly crypto:
   ${pause(1000)}
