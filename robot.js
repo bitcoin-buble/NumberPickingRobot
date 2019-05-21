@@ -38,6 +38,7 @@ const pickCoins = async () => {
     reject({ symbol: "ORBS" }),
     reject({ symbol: "DOGE" }),
     reject({ symbol: "BTC" }),
+    reject({ symbol: "NEO" }),
 
     sayNumberOfChoices,
     sampleSize(4),
@@ -49,15 +50,23 @@ const pickCoins = async () => {
 
 const run = async () => {
   const intro = `
-  Well, at least some of you turned up and I didn't have to do the whole show on my own. ${pause(
-    600
-  )} Hold Tight P money for letting you have his flat to record in, he definitely deserves a holiday after turning up three weeks in a row.
-  ${pause(
-    1000
-  )} I've been here week in, week out. Maybe I should have a holiday from this random number generation. ${pause(
-    1000
-  )}
-  Anyway.
+
+
+  Wew laddy, thirty dollar b n b and counting. Good thing my bags are full to the brim. Hold tight C Z.
+  ${pause(450)}
+  Oh
+  ${pause(350)}
+  Neo got picked for this weeks deep dive,
+  ${pause(100)}
+   rough break lads.
+   ${pause(100)}
+   But if you will entrust such matters to the gremlins of crypto twitter, you deserve nothing less. How many times must the Prince
+  tell you that democracy is an abject failure before you grow a pair and inject some centralised authority into this process.
+  ${pause(50)}
+Hold tight the Prince in the North.
+${pause(150)}
+  Anyhoo, on with the show,
+${pause(50)}
   Here's my picks for next week's crypto weekly's weekly crypto:
   ${pause(1000)}
   `;
