@@ -15,11 +15,10 @@ const pause = ms => `[[slnc ${ms}]]`;
 
 const sayNumberOfChoices = n =>
   console.log(
-    `Sue Dough. randomly picking four coins from roughly the top 100 ish ${pause(
-      2500
-    )}`
+    `Actually randomly picking four coins from roughly the top ${size(
+      n
+    )} ish ${pause(2500)}`
   ) || n;
-// console.log(`picking four coins from ${size(n)} ${pause(2500)}`) || n;
 
 const pickCoins = async () => {
   const { data } = await axios.get("https://api.coinpaprika.com/v1/coins");
@@ -50,7 +49,6 @@ const pickCoins = async () => {
     sayNumberOfChoices,
     sampleSize(4),
     map("name"),
-    whocares => ["Genesis Vision", "Nexo", "Chain Link", "Loom"],
     join(", ")
   )(data);
   return coins;
@@ -58,13 +56,9 @@ const pickCoins = async () => {
 
 const run = async () => {
   const intro = `
-  Fuck me, you pair were pished last week! ${pause(
-    300
-  )} I lost track of who's who. Can you try and keep it together tonight please.
-  ${pause(750)}
-  No real news from me this week, except that my bags are packed full of Ethereum ready for my holiday with Boobs next week.
-  ${pause(300)}
-  On with the draw.
+  FINE!
+  ${pause(300)} I'm not doing it again next week though.
+  ${pause(300)} Here we go ...
   ${pause(1000)}`;
   console.log(intro);
 
@@ -72,10 +66,8 @@ const run = async () => {
   console.log(coins);
 
   console.log(`
-  ${pause(450)} Randomness
-  ${pause(200)} sorry, democracy,
-  ${pause(200)} for the win
-  ${pause(250)} You're welcome
+  ${pause(450)} Sorry G P.
+  ${pause(450)} I tried.
   `);
 };
 
