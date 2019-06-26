@@ -15,9 +15,11 @@ const pause = ms => `[[slnc ${ms}]]`;
 
 const sayNumberOfChoices = n =>
   console.log(
-    `Sue Dough. randomly picking four coins from roughly the top 100 ish ${pause(
-      2500
-    )}`
+    `As boobs picked the last four I'm going to Sue Dough. randomly pick a panel member who will pick the next four coins for the poll
+    ${pause(2500)}
+    picking from the following cool dudes:
+    ${pause(1000)}
+    `
   ) || n;
 // console.log(`picking four coins from ${size(n)} ${pause(2500)}`) || n;
 
@@ -48,9 +50,14 @@ const pickCoins = async () => {
     reject({ symbol: "ETH" }),
 
     sayNumberOfChoices,
-    sampleSize(4),
-    map("name"),
-    whocares => ["Genesis Vision", "Nexo", "Chain Link", "Loom"],
+    // sampleSize(4),
+    // map("name"),
+    whocares => [
+      "The Prince of the North",
+      "Crypto Beak",
+      "Doctor P Money",
+      "Cal ee en tey Ken"
+    ],
     join(", ")
   )(data);
   return coins;
@@ -58,12 +65,14 @@ const pickCoins = async () => {
 
 const run = async () => {
   const intro = `
-  Fuck me, you pair were pished last week! ${pause(
-    300
-  )} I lost track of who's who. Can you try and keep it together tonight please.
+  Bon jaw no. It's me, the Robot! Back from the italian lakes, once again.
+  ${pause(600)}
+  I've already converted my remaining euros into zuck bucks.
+  ${pause(800)}
+  If I understand correctly, Chain link to 100 dollars by the end of the year then?
   ${pause(750)}
-  No real news from me this week, except that my bags are packed full of Ethereum ready for my holiday with Boobs next week.
-  ${pause(300)}
+  Sigh,
+  ${pause(750)}
   On with the draw.
   ${pause(1000)}`;
   console.log(intro);
@@ -72,10 +81,14 @@ const run = async () => {
   console.log(coins);
 
   console.log(`
-  ${pause(450)} Randomness
-  ${pause(200)} sorry, democracy,
-  ${pause(200)} for the win
-  ${pause(250)} You're welcome
+  ${pause(1000)}
+  ${sample([
+    "The Prince of the North",
+    "Crypto Beak",
+    "Doctor P Money",
+    "Cal ee en tey Ken"
+  ])}
+  ${pause(250)} Arry ver der chee
   `);
 };
 
